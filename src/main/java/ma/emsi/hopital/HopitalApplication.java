@@ -20,25 +20,25 @@ public class HopitalApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		//method ajout 1 without args
+		//Sans args
 		Patient patient1=new Patient();
 		patient1.setId(null);
-		patient1.setNom("Yamcha");
+		patient1.setNom("John");
 		patient1.setDateNaissance(new Date());
 		patient1.setMalade(true);
-		patient1.setScore(50);
+		patient1.setScore(35);
 		patientRepository.save(patient1);
 
-		//method ajout 2 with args
-		Patient patient2=new Patient(null,"krillin",new Date(),false,20);
+		//Avec Args
+		Patient patient2=new Patient(null,"Doe",new Date(),false,50);
 		patientRepository.save(patient2);
 
-		//method ajout 3 en utilisant Builder
+		//Builder
 		Patient patient3=Patient.builder()
-				.nom("Bulma")
+				.nom("Bruce")
 				.dateNaissance(new Date())
 				.malade(false)
-				.score(110)
+				.score(10)
 				.build();
 		patientRepository.save(patient3);
 	}
